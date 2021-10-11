@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Listino;
 import ViewCameriere.ViewCameriere;
-
+//ciao
 public class ControllerCameriere implements ActionListener {
 
 		private ViewCameriere viewCameriere;
