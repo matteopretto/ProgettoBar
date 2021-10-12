@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import model.Listino;
 import ViewCameriere.ViewCameriere;
-//ciao
+
 public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;

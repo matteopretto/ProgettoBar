@@ -16,8 +16,7 @@ import javax.swing.JComboBox;
 import model.Listino;
 import controllerCameriere.ControllerCameriere;
 import javax.swing.JTextArea;
-
-
+import java.awt.event.ActionEvent;
 
 public class ViewCameriere {
 
@@ -25,8 +24,7 @@ public class ViewCameriere {
 	private JComboBox comboBoxOrdini;
 	private JButton Ordina;
 	private JTextArea textOrdini;
-	
-	
+
 	public void registraController(ControllerCameriere controller) {
 		comboBoxOrdini.addActionListener(controller);
 		Ordina.addActionListener(controller);
@@ -35,7 +33,6 @@ public class ViewCameriere {
 	/**
 	 * Launch the application.
 	 */
-	
 
 	/**
 	 * Create the application.
@@ -53,20 +50,24 @@ public class ViewCameriere {
 		frame.setBounds(100, 100, 361, 397);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		 Ordina = new JButton("ORDINA");
+
+		Ordina = new JButton("ORDINA");
+		Ordina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		Ordina.setBackground(Color.LIGHT_GRAY);
 		Ordina.setBounds(124, 289, 85, 21);
 		frame.getContentPane().add(Ordina);
-		
+
 		JLabel lblNewLabel = new JLabel("GOORILLA");
 		lblNewLabel.setFont(new Font("Stencil", Font.PLAIN, 25));
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(114, 27, 123, 38);
 		frame.getContentPane().add(lblNewLabel);
-		
-	 comboBoxOrdini = new JComboBox();
+
+		comboBoxOrdini = new JComboBox();
 		comboBoxOrdini.setBounds(107, 85, 130, 31);
 		frame.getContentPane().add(comboBoxOrdini);
 		comboBoxOrdini.addItem(Listino.Campari);
@@ -75,8 +76,8 @@ public class ViewCameriere {
 		comboBoxOrdini.addItem(Listino.Malibu_Cola);
 		comboBoxOrdini.addItem(Listino.Mojito);
 		comboBoxOrdini.addItem(Listino.Prosecco);
-		
-		 textOrdini = new JTextArea();
+
+		textOrdini = new JTextArea();
 		textOrdini.setBounds(114, 141, 123, 120);
 		frame.getContentPane().add(textOrdini);
 	}
@@ -112,5 +113,5 @@ public class ViewCameriere {
 	public void setTextOrdini(JTextArea textOrdini) {
 		this.textOrdini = textOrdini;
 	}
-	
+
 }

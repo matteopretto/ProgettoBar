@@ -11,7 +11,7 @@ public class MainCameriere {
 			public void run() {
 				try {
 					ViewCameriere window = new ViewCameriere();
-					ControllerCameriere controller= new ControllerCameriere(window);
+					ControllerCameriere controller = new ControllerCameriere(window);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
