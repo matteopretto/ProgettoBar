@@ -9,10 +9,14 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ViewCucina {
 
 	private JFrame frame;
+	private JButton btnPronto;
+	private JButton btnAggiorna;
 
 	/**
 	 * Launch the application.
@@ -47,21 +51,28 @@ public class ViewCucina {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JButton btnNewButton = new JButton("PRONTO");
-		btnNewButton.setBounds(184, 207, 85, 21);
-		frame.getContentPane().add(btnNewButton);
-		
+
+		btnPronto = new JButton("PRONTO");
+		btnPronto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPronto.setBounds(247, 205, 85, 21);
+		frame.getContentPane().add(btnPronto);
+
 		JLabel lblNewLabel = new JLabel("GOORILLA");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Stencil", Font.PLAIN, 25));
-		lblNewLabel.setBounds(157, 12, 123, 38);
+		lblNewLabel.setBounds(164, 13, 123, 38);
 		frame.getContentPane().add(lblNewLabel);
-		
-		JList list = new JList();
-		list.setBounds(116, 60, 216, 119);
-		frame.getContentPane().add(list);
-	}
 
+		JList listCucina = new JList();
+		listCucina.setBounds(116, 60, 216, 119);
+		frame.getContentPane().add(listCucina);
+
+		btnAggiorna = new JButton("AGGIORNA");
+		btnAggiorna.setBounds(116, 205, 99, 21);
+		frame.getContentPane().add(btnAggiorna);
+	}
 }

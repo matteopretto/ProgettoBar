@@ -27,6 +27,7 @@ public class MainCameriere {
 					Listino listino= new Listino(nome, prezzo);
 					
 					ControllerCameriere controller= new ControllerCameriere(window, modello, listino);
+
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

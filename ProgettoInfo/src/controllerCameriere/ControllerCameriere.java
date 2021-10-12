@@ -9,7 +9,7 @@ import model.Listino;
 import model.Model;
 import ViewCameriere.ViewCameriere;
 
-//ciao
+
 public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;
