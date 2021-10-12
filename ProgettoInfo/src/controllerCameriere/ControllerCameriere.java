@@ -13,6 +13,7 @@ public class ControllerCameriere implements ActionListener {
 	private ViewCameriere viewCameriere;
 	private Listino listino;
 	String temp = "IN PREPARAZIONE:";
+	String strFile="";
 
 	public ControllerCameriere(ViewCameriere viewCameriere) {
 		this.viewCameriere = viewCameriere;
@@ -26,6 +27,7 @@ public class ControllerCameriere implements ActionListener {
 				String newOrder = viewCameriere.getComboBoxOrdini().getSelectedItem().toString();
 				temp += "\n" + newOrder;
 				viewCameriere.getTextOrdini().setText(temp);
+				
 			}
 
 			else
