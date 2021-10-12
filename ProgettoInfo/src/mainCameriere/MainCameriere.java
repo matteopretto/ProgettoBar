@@ -17,10 +17,10 @@ public class MainCameriere {
 			public void run() {
 				try {
 					ViewCameriere window = new ViewCameriere();
+					FileWriter fw= new FileWriter("Comande.txt");
 					BufferedReader b=null;
 					 b= new BufferedReader(new FileReader("Comande.txt"));
-					
-					FileWriter fw= new FileWriter("Comande.txt");
+				
 					String nome="";
 					float prezzo=0;
 					Model modello= new Model(fw, b);

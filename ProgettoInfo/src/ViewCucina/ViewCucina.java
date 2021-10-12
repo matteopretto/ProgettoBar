@@ -17,6 +17,7 @@ public class ViewCucina {
 	private JFrame frame;
 	private JButton btnPronto;
 	private JButton btnAggiorna;
+	private JButton btnInPreparazione;
 
 	/**
 	 * Launch the application.
@@ -53,6 +54,7 @@ public class ViewCucina {
 		frame.getContentPane().setLayout(null);
 
 		btnPronto = new JButton("PRONTO");
+		btnPronto.setBackground(Color.GREEN);
 		btnPronto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -72,7 +74,15 @@ public class ViewCucina {
 		frame.getContentPane().add(listCucina);
 
 		btnAggiorna = new JButton("AGGIORNA");
-		btnAggiorna.setBounds(116, 205, 99, 21);
+		btnAggiorna.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnAggiorna.setForeground(Color.BLACK);
+		btnAggiorna.setBounds(0, 232, 99, 21);
 		frame.getContentPane().add(btnAggiorna);
+		
+		JButton btnInPreparazione = new JButton("PREPARA");
+		btnInPreparazione.setBackground(Color.ORANGE);
+		btnInPreparazione.setForeground(Color.BLACK);
+		btnInPreparazione.setBounds(127, 205, 85, 21);
+		frame.getContentPane().add(btnInPreparazione);
 	}
 }

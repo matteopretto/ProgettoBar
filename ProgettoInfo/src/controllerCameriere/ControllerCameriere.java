@@ -41,6 +41,7 @@ public class ControllerCameriere implements ActionListener {
 				viewCameriere.getTextOrdini().setText(temp);
 				strFile = i + " " + newOrder + " 0\n";
 				modello.scriviSuFile(strFile);
+				i++;
 			}
 
 			else
