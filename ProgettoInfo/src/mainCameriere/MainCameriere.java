@@ -25,8 +25,10 @@ public class MainCameriere {
 					float prezzo=0;
 					Model modello= new Model(fw, b);
 					Listino listino= new Listino(nome, prezzo);
+					Listino [] list= new Listino[20];
 					
-					ControllerCameriere controller= new ControllerCameriere(window, modello, listino);
+					
+					ControllerCameriere controller= new ControllerCameriere(window, modello, listino, list);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {

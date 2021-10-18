@@ -9,8 +9,13 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
+import controllerCameriere.ControllerCameriere;
+import controllerCucina.ControllerCucina;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class ViewCucina {
 
@@ -18,21 +23,16 @@ public class ViewCucina {
 	private JButton btnPronto;
 	private JButton btnAggiorna;
 	private JButton btnInPreparazione;
+	private JComboBox comboBoxOrdini;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewCucina window = new ViewCucina();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public void registraController(ControllerCucina controller) {
+		btnPronto.addActionListener(controller);
+		btnAggiorna.addActionListener(controller);
+		btnInPreparazione.addActionListener(controller);
+		comboBoxOrdini.addActionListener(controller);
 	}
 
 	/**
@@ -66,12 +66,8 @@ public class ViewCucina {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Stencil", Font.PLAIN, 25));
-		lblNewLabel.setBounds(164, 13, 123, 38);
+		lblNewLabel.setBounds(158, 39, 123, 38);
 		frame.getContentPane().add(lblNewLabel);
-
-		JList listCucina = new JList();
-		listCucina.setBounds(116, 60, 216, 119);
-		frame.getContentPane().add(listCucina);
 
 		btnAggiorna = new JButton("AGGIORNA");
 		btnAggiorna.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -79,10 +75,47 @@ public class ViewCucina {
 		btnAggiorna.setBounds(0, 232, 99, 21);
 		frame.getContentPane().add(btnAggiorna);
 		
-		JButton btnInPreparazione = new JButton("PREPARA");
+		btnInPreparazione = new JButton("PREPARA");
 		btnInPreparazione.setBackground(Color.ORANGE);
 		btnInPreparazione.setForeground(Color.BLACK);
 		btnInPreparazione.setBounds(127, 205, 85, 21);
 		frame.getContentPane().add(btnInPreparazione);
+		
+		comboBoxOrdini = new JComboBox();
+		comboBoxOrdini.setBounds(144, 104, 143, 27);
+		frame.getContentPane().add(comboBoxOrdini);
 	}
+
+	public JButton getBtnPronto() {
+		return btnPronto;
+	}
+
+	public void setBtnPronto(JButton btnPronto) {
+		this.btnPronto = btnPronto;
+	}
+
+	public JButton getBtnAggiorna() {
+		return btnAggiorna;
+	}
+
+	public void setBtnAggiorna(JButton btnAggiorna) {
+		this.btnAggiorna = btnAggiorna;
+	}
+
+	public JButton getBtnInPreparazione() {
+		return btnInPreparazione;
+	}
+
+	public void setBtnInPreparazione(JButton btnInPreparazione) {
+		this.btnInPreparazione = btnInPreparazione;
+	}
+
+	public JComboBox getComboBoxOrdini() {
+		return comboBoxOrdini;
+	}
+
+	public void setComboBoxOrdini(JComboBox comboBoxOrdini) {
+		this.comboBoxOrdini = comboBoxOrdini;
+	}
+	
 }

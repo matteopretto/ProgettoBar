@@ -9,7 +9,6 @@ import model.Listino;
 import model.Model;
 import ViewCameriere.ViewCameriere;
 
-
 public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;
@@ -19,12 +18,15 @@ public class ControllerCameriere implements ActionListener {
 	String strFile = "";
 	int apriFile = 0;
 	int i = 0;
+	Listino[] list;
+	int indexListino = 0;
 
-	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino) {
+	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino, Listino[] list) {
 		this.viewCameriere = viewCameriere;
 		viewCameriere.registraController(this);
-		this.modello=modello;
-		this.listino=listino;
+		this.modello = modello;
+		this.listino = listino;
+		this.list=list;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -36,12 +38,14 @@ public class ControllerCameriere implements ActionListener {
 			} else
 				;
 			if (viewCameriere.getComboBoxOrdini().getSelectedIndex() != -1) {
-				String newOrder = viewCameriere.getComboBoxOrdini().getSelectedItem().toString();
-				temp += "\n" + newOrder;
+				list[indexListino] = (Listino) viewCameriere.getComboBoxOrdini().getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex());
+				indexListino++;
 				viewCameriere.getTextOrdini().setText(temp);
-				strFile = i + " " + newOrder + " 0\n";
-				modello.scriviSuFile(strFile);
+
+				modello.scriviSuFile(list);
 				i++;
+				modello.leggiDaFile();
+
 			}
 
 			else
