@@ -26,7 +26,7 @@ public class ControllerCameriere implements ActionListener {
 		viewCameriere.registraController(this);
 		this.modello = modello;
 		this.listino = listino;
-		this.list=list;
+		this.list = list;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -38,13 +38,12 @@ public class ControllerCameriere implements ActionListener {
 			} else
 				;
 			if (viewCameriere.getComboBoxOrdini().getSelectedIndex() != -1) {
-				list[indexListino] = (Listino) viewCameriere.getComboBoxOrdini().getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex());
+				list[indexListino] = (Listino) viewCameriere.getComboBoxOrdini()
+						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex());
 				indexListino++;
 				viewCameriere.getTextOrdini().setText(temp);
 
 				modello.scriviSuFile(list);
-				i++;
-				modello.leggiDaFile();
 
 			}
 
