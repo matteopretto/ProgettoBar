@@ -26,7 +26,7 @@ public class Listino implements Serializable{
 
 	@Override
 	public String toString() {
-		return "" + nome + " [" + prezzo + "€]";
+		return "" + nome + " [" + prezzo + "€] "+stato;
 	}
 
 	public String toString2() {

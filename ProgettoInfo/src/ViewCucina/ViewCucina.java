@@ -19,7 +19,7 @@ import javax.swing.JComboBox;
 
 public class ViewCucina {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JButton btnPronto;
 	private JButton btnAggiorna;
 	private JButton btnInPreparazione;

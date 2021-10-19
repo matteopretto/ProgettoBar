@@ -2,6 +2,7 @@ package controllerCucina;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -14,6 +15,7 @@ public class ControllerCucina implements ActionListener {
 	private ViewCucina viewCucina;
 	private Model model;
 	private Listino listino;
+	ArrayList<Listino> list= new ArrayList<Listino>();
 
 		public ControllerCucina(ViewCucina viewCucina, Model model, Listino listino) {
 			this.viewCucina=viewCucina;
@@ -24,7 +26,10 @@ public class ControllerCucina implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==viewCucina.getBtnAggiorna()) {
-
+			list=model.leggiDaFile();
+			for(int i=0; i<list.size(); i++) {
+				viewCucina.getComboBoxOrdini().addItem(list.get(i));
+			}
 		}
 		
 	}

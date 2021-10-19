@@ -2,6 +2,7 @@ package controllerCameriere;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -18,10 +19,10 @@ public class ControllerCameriere implements ActionListener {
 	String strFile = "";
 	int apriFile = 0;
 	int i = 0;
-	Listino[] list;
+	ArrayList<Listino> list= new ArrayList<Listino>();
 	int indexListino = 0;
 
-	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino, Listino[] list) {
+	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino, ArrayList<Listino> list) {
 		this.viewCameriere = viewCameriere;
 		viewCameriere.registraController(this);
 		this.modello = modello;
@@ -38,8 +39,8 @@ public class ControllerCameriere implements ActionListener {
 			} else
 				;
 			if (viewCameriere.getComboBoxOrdini().getSelectedIndex() != -1) {
-				list[indexListino] = (Listino) viewCameriere.getComboBoxOrdini()
-						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex());
+				list.add( (Listino) viewCameriere.getComboBoxOrdini()
+						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex()));
 				indexListino++;
 				viewCameriere.getTextOrdini().setText(temp);
 
