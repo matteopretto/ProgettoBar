@@ -64,5 +64,9 @@ public class ControllerCameriere implements ActionListener {
 				}
 			}
 		}
+		
+		if(arg0.getSource()==viewCameriere.getBtnNewServito()) {
+			
+		}
 	}
 }
