@@ -31,7 +31,7 @@ public class MainCameriere {
 					ArrayList<Listino> list= new ArrayList<Listino>();
 					
 					
-					ControllerCameriere controller= new ControllerCameriere(window, modello, listino, list);
+					ControllerCameriere controller= new ControllerCameriere(window, modello,  list);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {

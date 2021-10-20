@@ -27,11 +27,11 @@ public class MainCucina {
 					String nome="";
 					float prezzo = 0;
 					Model modello= new Model(fw, b);
-					Listino listino= new Listino(nome, prezzo, stato, id);
+					
 					//Listino [] list= new Listino[20];
 					
 					
-					ControllerCucina controller= new ControllerCucina(window, modello, listino);
+					ControllerCucina controller= new ControllerCucina(window, modello);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {

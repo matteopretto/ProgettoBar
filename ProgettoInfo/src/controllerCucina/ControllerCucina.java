@@ -15,14 +15,12 @@ import model.Listino;
 public class ControllerCucina implements ActionListener {
 	private ViewCucina viewCucina;
 	private Model model;
-	private Listino listino;
 	ArrayList<Listino> list= new ArrayList<Listino>();
 	int i=0;
 
-		public ControllerCucina(ViewCucina viewCucina, Model model, Listino listino) {
+		public ControllerCucina(ViewCucina viewCucina, Model model) {
 			this.viewCucina=viewCucina;
 			viewCucina.registraController(this);
-			this.listino=listino;
 			this.model=model;
 		}
 	@Override
@@ -37,7 +35,8 @@ public class ControllerCucina implements ActionListener {
 		
 		if(arg0.getSource()==viewCucina.getBtnInPreparazione()) {
 			int j=viewCucina.getComboBoxOrdini().getSelectedIndex();
-			int g=((Listino)viewCucina.getComboBoxOrdini().getSelectedItem()).getID();
+			int g=((Listino)viewCucina.getComboBoxOrdini().getItemAt(j)).getID();
+			System.out.println(g);
 			viewCucina.getComboBoxPronto().addItem(viewCucina.getComboBoxOrdini().getSelectedItem());
 			viewCucina.getComboBoxOrdini().removeItemAt(j);
 			list=model.leggiDaFile();
@@ -54,7 +53,8 @@ public class ControllerCucina implements ActionListener {
 	}	
 		if(arg0.getSource()==viewCucina.getBtnPronto()) {
 			int y=viewCucina.getComboBoxPronto().getSelectedIndex();
-			int z= ((Listino) viewCucina.getComboBoxPronto().getSelectedItem()).getID();
+			int z= ((Listino) viewCucina.getComboBoxPronto().getItemAt(y)).getID();
+			System.out.println(z);
 			viewCucina.getComboBoxPronto().removeItemAt(y);
 			list=model.leggiDaFile();
 			for(int i=0; i<list.size(); i++) {

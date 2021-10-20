@@ -13,7 +13,6 @@ import ViewCameriere.ViewCameriere;
 public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;
-	private Listino listino;
 	private Model modello;
 	String temp = "ORDINAZIONI EFFETTUATE:\n";
 	String strFile = "";
@@ -23,11 +22,10 @@ public class ControllerCameriere implements ActionListener {
 	int indexListino = 0;
 	ArrayList<Listino> list2= new ArrayList<Listino>();
 
-	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino, ArrayList<Listino> list) {
+	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, ArrayList<Listino> list) {
 		this.viewCameriere = viewCameriere;
 		viewCameriere.registraController(this);
 		this.modello = modello;
-		this.listino = listino;
 		this.list = list;
 	}
 
