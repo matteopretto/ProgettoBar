@@ -57,7 +57,7 @@ public class ViewCucina {
 		frame.getContentPane().setLayout(null);
 
 		btnPronto = new JButton("PRONTO");
-		btnPronto.setBackground(Color.GREEN);
+		btnPronto.setBackground(new Color(240, 240, 240));
 		btnPronto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -79,7 +79,7 @@ public class ViewCucina {
 		frame.getContentPane().add(btnAggiorna);
 		
 		btnInPreparazione = new JButton("PREPARA");
-		btnInPreparazione.setBackground(Color.ORANGE);
+		btnInPreparazione.setBackground(new Color(240, 240, 240));
 		btnInPreparazione.setForeground(Color.BLACK);
 		btnInPreparazione.setBounds(127, 205, 85, 21);
 		frame.getContentPane().add(btnInPreparazione);
