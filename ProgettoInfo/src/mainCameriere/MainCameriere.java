@@ -22,11 +22,12 @@ public class MainCameriere {
 					BufferedReader b=null;
 					 b= new BufferedReader(new FileReader("Comande.txt"));
 					 int stato = 0;
+					 int id=0;
 				
 					String nome="";
 					float prezzo = 0;
 					Model modello= new Model(fw, b);
-					Listino listino= new Listino(nome, prezzo, stato);
+					Listino listino= new Listino(nome, prezzo, stato, id);
 					ArrayList<Listino> list= new ArrayList<Listino>();
 					
 					

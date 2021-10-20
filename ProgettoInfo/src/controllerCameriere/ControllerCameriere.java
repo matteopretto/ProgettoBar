@@ -15,12 +15,13 @@ public class ControllerCameriere implements ActionListener {
 	private ViewCameriere viewCameriere;
 	private Listino listino;
 	private Model modello;
-	String temp = "IN PREPARAZIONE:";
+	String temp = "ORDINAZIONI EFFETTUATE:\n";
 	String strFile = "";
 	int apriFile = 0;
 	int i = 0;
 	ArrayList<Listino> list= new ArrayList<Listino>();
 	int indexListino = 0;
+	ArrayList<Listino> list2= new ArrayList<Listino>();
 
 	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, Listino listino, ArrayList<Listino> list) {
 		this.viewCameriere = viewCameriere;
@@ -45,11 +46,25 @@ public class ControllerCameriere implements ActionListener {
 				viewCameriere.getTextOrdini().setText(temp);
 
 				modello.scriviSuFile(list);
+				//temp+=""+viewCameriere.getComboBoxOrdini().toString()+"\n";
+				//viewCameriere.getTextOrdini().setText(temp);
+				
 
 			}
 
 			else
 				JOptionPane.showMessageDialog(null, "Non hai selezionato nessuna bevanda");
+		}
+		
+		if(arg0.getSource()==viewCameriere.getBtnNewAggiorna()) {
+			list2=modello.leggiDaFile();
+			System.out.println(list2);
+			for(int i=0; i<list2.size(); i++) {
+				if(list2.get(i).getStato()==2) {
+					System.out.println(list2);
+					viewCameriere.getComboBoxDaServire().addItem(list2.get(i));
+				}
+			}
 		}
 	}
 }

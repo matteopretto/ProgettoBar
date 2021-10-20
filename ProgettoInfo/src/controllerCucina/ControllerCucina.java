@@ -1,5 +1,6 @@
 package controllerCucina;
 
+import java.awt.AWTEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class ControllerCucina implements ActionListener {
 	private Model model;
 	private Listino listino;
 	ArrayList<Listino> list= new ArrayList<Listino>();
+	int i=0;
 
 		public ControllerCucina(ViewCucina viewCucina, Model model, Listino listino) {
 			this.viewCucina=viewCucina;
@@ -27,9 +29,47 @@ public class ControllerCucina implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==viewCucina.getBtnAggiorna()) {
 			list=model.leggiDaFile();
-			for(int i=0; i<list.size(); i++) {
+			while(i<list.size()) {
 				viewCucina.getComboBoxOrdini().addItem(list.get(i));
+				i++;
 			}
+		}
+		
+		if(arg0.getSource()==viewCucina.getBtnInPreparazione()) {
+			int j=viewCucina.getComboBoxOrdini().getSelectedIndex();
+			int g=((Listino)viewCucina.getComboBoxOrdini().getSelectedItem()).getID();
+			viewCucina.getComboBoxPronto().addItem(viewCucina.getComboBoxOrdini().getSelectedItem());
+			viewCucina.getComboBoxOrdini().removeItemAt(j);
+			list=model.leggiDaFile();
+			for(int i=0; i<list.size(); i++) {
+				if(list.get(i).getID()==g) {
+					int c=list.get(i).getStato();
+					list.get(i).setStato(c+1);
+					model.scriviSuFile(list);
+					System.out.println(list);
+					break;
+				}
+		}
+			System.out.println(list);
+	}	
+		if(arg0.getSource()==viewCucina.getBtnPronto()) {
+			int y=viewCucina.getComboBoxPronto().getSelectedIndex();
+			int z= ((Listino) viewCucina.getComboBoxPronto().getSelectedItem()).getID();
+			viewCucina.getComboBoxPronto().removeItemAt(y);
+			list=model.leggiDaFile();
+			for(int i=0; i<list.size(); i++) {
+				if(list.get(i).getID()==z) {
+					int c=list.get(i).getStato();
+					list.get(i).setStato(c+1);
+					model.scriviSuFile(list);
+					System.out.println(list);
+					break;
+				}
+			}
+			/*int x=list.get(y).getStato();
+			list.get(y).setStato(x+1);
+			model.scriviSuFile(list);
+			System.out.println(list);*/
 		}
 		
 	}

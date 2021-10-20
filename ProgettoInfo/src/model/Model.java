@@ -40,7 +40,7 @@ public class Model {
 	public void scriviSuFile(ArrayList<Listino> lis) {
 		try {
 
-			FileOutputStream fos = new FileOutputStream("Prova.txt");
+			FileOutputStream fos = new FileOutputStream("Comande.txt");
 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(lis);
@@ -55,7 +55,7 @@ public class Model {
 		try {
 			
 			System.out.println("son dentro");
-			fis = new FileInputStream("Prova.txt");
+			fis = new FileInputStream("Comande.txt");
 			System.out.println("son dentro 2");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			System.out.println("son dentro 3");

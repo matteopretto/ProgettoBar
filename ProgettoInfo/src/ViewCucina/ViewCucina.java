@@ -16,6 +16,7 @@ import controllerCucina.ControllerCucina;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
 
 public class ViewCucina {
 
@@ -24,6 +25,7 @@ public class ViewCucina {
 	private JButton btnAggiorna;
 	private JButton btnInPreparazione;
 	private JComboBox comboBoxOrdini;
+	private JComboBox comboBoxPronto ;
 
 	/**
 	 * Launch the application.
@@ -33,6 +35,7 @@ public class ViewCucina {
 		btnAggiorna.addActionListener(controller);
 		btnInPreparazione.addActionListener(controller);
 		comboBoxOrdini.addActionListener(controller);
+		comboBoxPronto.addActionListener(controller);
 	}
 
 	/**
@@ -82,8 +85,12 @@ public class ViewCucina {
 		frame.getContentPane().add(btnInPreparazione);
 		
 		comboBoxOrdini = new JComboBox();
-		comboBoxOrdini.setBounds(144, 104, 143, 27);
+		comboBoxOrdini.setBounds(52, 117, 143, 27);
 		frame.getContentPane().add(comboBoxOrdini);
+		
+		 comboBoxPronto = new JComboBox();
+		comboBoxPronto.setBounds(219, 117, 143, 27);
+		frame.getContentPane().add(comboBoxPronto);
 	}
 
 	public JButton getBtnPronto() {
@@ -96,6 +103,14 @@ public class ViewCucina {
 
 	public JButton getBtnAggiorna() {
 		return btnAggiorna;
+	}
+
+	public JComboBox getComboBoxPronto() {
+		return comboBoxPronto;
+	}
+
+	public void setComboBoxPronto(JComboBox comboBoxPronto) {
+		this.comboBoxPronto = comboBoxPronto;
 	}
 
 	public void setBtnAggiorna(JButton btnAggiorna) {
@@ -117,5 +132,4 @@ public class ViewCucina {
 	public void setComboBoxOrdini(JComboBox comboBoxOrdini) {
 		this.comboBoxOrdini = comboBoxOrdini;
 	}
-	
 }

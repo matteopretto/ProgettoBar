@@ -24,10 +24,17 @@ public class ViewCameriere {
 	private JComboBox comboBoxOrdini;
 	private JButton Ordina;
 	private JTextArea textOrdini;
-
+	private JButton btnNewAggiorna;
+	private JComboBox comboBoxDaServire;
+	private JButton btnNewServito;
+	
+	
 	public void registraController(ControllerCameriere controller) {
 		comboBoxOrdini.addActionListener(controller);
 		Ordina.addActionListener(controller);
+		comboBoxDaServire.addActionListener(controller);
+		btnNewServito.addActionListener(controller);
+		btnNewAggiorna.addActionListener(controller);
 	}
 
 	/**
@@ -57,7 +64,7 @@ public class ViewCameriere {
 			}
 		});
 		Ordina.setBackground(Color.LIGHT_GRAY);
-		Ordina.setBounds(124, 289, 85, 21);
+		Ordina.setBounds(226, 90, 85, 21);
 		frame.getContentPane().add(Ordina);
 
 		JLabel lblNewLabel = new JLabel("GOORILLA");
@@ -68,7 +75,7 @@ public class ViewCameriere {
 		frame.getContentPane().add(lblNewLabel);
 
 		comboBoxOrdini = new JComboBox();
-		comboBoxOrdini.setBounds(107, 85, 130, 31);
+		comboBoxOrdini.setBounds(85, 85, 130, 31);
 		frame.getContentPane().add(comboBoxOrdini);
 		comboBoxOrdini.addItem(Listino.Campari);
 		comboBoxOrdini.addItem(Listino.Cuba_Libre);
@@ -78,12 +85,48 @@ public class ViewCameriere {
 		comboBoxOrdini.addItem(Listino.Prosecco);
 
 		textOrdini = new JTextArea();
-		textOrdini.setBounds(114, 141, 123, 120);
+		textOrdini.setBounds(26, 171, 94, 121);
 		frame.getContentPane().add(textOrdini);
+		
+		comboBoxDaServire = new JComboBox();
+		comboBoxDaServire.setBounds(188, 188, 123, 31);
+		frame.getContentPane().add(comboBoxDaServire);
+		
+		 btnNewAggiorna = new JButton("AGGIORNA");
+		btnNewAggiorna.setBounds(241, 329, 85, 21);
+		frame.getContentPane().add(btnNewAggiorna);
+		
+		btnNewServito = new JButton("SERVITO");
+		btnNewServito.setBounds(211, 229, 85, 21);
+		frame.getContentPane().add(btnNewServito);
 	}
 
 	public JComboBox getComboBoxOrdini() {
 		return comboBoxOrdini;
+	}
+	
+	public JButton getBtnNewAggiorna() {
+		return btnNewAggiorna;
+	}
+
+	public void setBtnNewAggiorna(JButton btnNewAggiorna) {
+		this.btnNewAggiorna = btnNewAggiorna;
+	}
+
+	public JComboBox getComboBoxDaServire() {
+		return comboBoxDaServire;
+	}
+
+	public void setComboBoxDaServire(JComboBox comboBoxDaServire) {
+		this.comboBoxDaServire = comboBoxDaServire;
+	}
+
+	public JButton getBtnNewServito() {
+		return btnNewServito;
+	}
+
+	public void setBtnNewServito(JButton btnNewServito) {
+		this.btnNewServito = btnNewServito;
 	}
 
 	public void setComboBoxOrdini(JComboBox comboBoxOrdini) {
@@ -109,9 +152,8 @@ public class ViewCameriere {
 	public JTextArea getTextOrdini() {
 		return textOrdini;
 	}
-
+	
 	public void setTextOrdini(JTextArea textOrdini) {
 		this.textOrdini = textOrdini;
 	}
-
 }
