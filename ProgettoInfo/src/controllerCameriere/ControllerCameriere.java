@@ -14,13 +14,17 @@ public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;
 	private Model modello;
-	String temp = "ORDINAZIONI EFFETTUATE:\n";
+	String temp = "SERVITO:\n";
 	String strFile = "";
 	int apriFile = 0;
 	int i = 0;
 	ArrayList<Listino> list= new ArrayList<Listino>();
 	int indexListino = 0;
 	ArrayList<Listino> list2= new ArrayList<Listino>();
+	int comande=0;
+	String nComande="";
+	float totale;
+	String sTotale="";
 
 	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, ArrayList<Listino> list) {
 		this.viewCameriere = viewCameriere;
@@ -66,6 +70,27 @@ public class ControllerCameriere implements ActionListener {
 		}
 		
 		if(arg0.getSource()==viewCameriere.getBtnNewServito()) {
+			int a= viewCameriere.getComboBoxDaServire().getSelectedIndex();
+			int b= ((Listino)viewCameriere.getComboBoxDaServire().getSelectedItem()).getID();
+			viewCameriere.getComboBoxDaServire().removeItemAt(a);
+			list2=modello.leggiDaFile();
+			for(int i=0; i<list2.size(); i++) {
+				if(list2.get(i).getID()==b) {
+					int v=list2.get(i).getStato();
+					list2.get(i).setStato(v+1);
+					temp+=""+list2.get(i)+"\n";
+					comande++;
+					totale+=list2.get(i).getPrezzo();
+					
+					break;
+				}
+			}
+			modello.scriviSuFile(list2);
+			viewCameriere.getTextOrdini().setText(temp);
+			nComande="TOT. "+comande;
+			viewCameriere.getTextComande().setText(nComande);
+			sTotale="TOTALE €"+totale;
+			viewCameriere.getTextTotale().setText(sTotale);
 			
 		}
 	}

@@ -23,10 +23,12 @@ public class ViewCameriere {
 	public JFrame frame;
 	private JComboBox comboBoxOrdini;
 	private JButton Ordina;
-	private JTextArea textOrdini;
+	private JTextArea textServito;
 	private JButton btnNewAggiorna;
 	private JComboBox comboBoxDaServire;
 	private JButton btnNewServito;
+	private JTextField textComande;
+	private JTextField textTotale;
 	
 	
 	public void registraController(ControllerCameriere controller) {
@@ -35,6 +37,8 @@ public class ViewCameriere {
 		comboBoxDaServire.addActionListener(controller);
 		btnNewServito.addActionListener(controller);
 		btnNewAggiorna.addActionListener(controller);
+		textComande.addActionListener(controller);
+		textTotale.addActionListener(controller);
 	}
 
 	/**
@@ -84,9 +88,10 @@ public class ViewCameriere {
 		comboBoxOrdini.addItem(Listino.Mojito);
 		comboBoxOrdini.addItem(Listino.Prosecco);
 
-		textOrdini = new JTextArea();
-		textOrdini.setBounds(26, 171, 94, 121);
-		frame.getContentPane().add(textOrdini);
+		textServito = new JTextArea();
+		textServito.setFont(new Font("Modern No. 20", Font.PLAIN, 13));
+		textServito.setBounds(26, 171, 110, 121);
+		frame.getContentPane().add(textServito);
 		
 		comboBoxDaServire = new JComboBox();
 		comboBoxDaServire.setBounds(188, 188, 123, 31);
@@ -99,6 +104,24 @@ public class ViewCameriere {
 		btnNewServito = new JButton("SERVITO");
 		btnNewServito.setBounds(211, 229, 85, 21);
 		frame.getContentPane().add(btnNewServito);
+		
+		textComande = new JTextField();
+		textComande.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		textComande.setText("TOT. 0");
+		textComande.setBackground(Color.LIGHT_GRAY);
+		textComande.setEditable(false);
+		textComande.setBounds(8, 10, 48, 19);
+		frame.getContentPane().add(textComande);
+		textComande.setColumns(10);
+		
+		textTotale = new JTextField();
+		textTotale.setText("TOTALE \u20AC 0.00");
+		textTotale.setFont(new Font("Times New Roman", Font.BOLD, 10));
+		textTotale.setEditable(false);
+		textTotale.setBackground(Color.LIGHT_GRAY);
+		textTotale.setBounds(247, 9, 79, 20);
+		frame.getContentPane().add(textTotale);
+		textTotale.setColumns(10);
 	}
 
 	public JComboBox getComboBoxOrdini() {
@@ -125,12 +148,36 @@ public class ViewCameriere {
 		return btnNewServito;
 	}
 
+	public JTextField getTextTotale() {
+		return textTotale;
+	}
+
+	public void setTextTotale(JTextField textTotale) {
+		this.textTotale = textTotale;
+	}
+
 	public void setBtnNewServito(JButton btnNewServito) {
 		this.btnNewServito = btnNewServito;
 	}
 
 	public void setComboBoxOrdini(JComboBox comboBoxOrdini) {
 		this.comboBoxOrdini = comboBoxOrdini;
+	}
+
+	public JTextArea getTextServito() {
+		return textServito;
+	}
+
+	public void setTextServito(JTextArea textServito) {
+		this.textServito = textServito;
+	}
+
+	public JTextField getTextComande() {
+		return textComande;
+	}
+
+	public void setTextComande(JTextField textComande) {
+		this.textComande = textComande;
 	}
 
 	public JFrame getFrame() {
@@ -150,10 +197,10 @@ public class ViewCameriere {
 	}
 
 	public JTextArea getTextOrdini() {
-		return textOrdini;
+		return textServito;
 	}
 	
 	public void setTextOrdini(JTextArea textOrdini) {
-		this.textOrdini = textOrdini;
+		this.textServito = textOrdini;
 	}
 }
