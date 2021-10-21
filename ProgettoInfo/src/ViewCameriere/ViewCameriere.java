@@ -90,7 +90,7 @@ public class ViewCameriere {
 
 		textServito = new JTextArea();
 		textServito.setFont(new Font("Modern No. 20", Font.PLAIN, 13));
-		textServito.setBounds(26, 171, 110, 121);
+		textServito.setBounds(26, 171, 130, 121);
 		frame.getContentPane().add(textServito);
 		
 		comboBoxDaServire = new JComboBox();
@@ -122,6 +122,12 @@ public class ViewCameriere {
 		textTotale.setBounds(247, 9, 79, 20);
 		frame.getContentPane().add(textTotale);
 		textTotale.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Cameriere");
+		lblNewLabel_1.setFont(new Font("Source Serif Pro Black", Font.ITALIC, 12));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_1.setBounds(8, 329, 85, 21);
+		frame.getContentPane().add(lblNewLabel_1);
 	}
 
 	public JComboBox getComboBoxOrdini() {

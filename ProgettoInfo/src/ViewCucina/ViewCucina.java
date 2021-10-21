@@ -26,6 +26,9 @@ public class ViewCucina {
 	private JButton btnInPreparazione;
 	private JComboBox comboBoxOrdini;
 	private JComboBox comboBoxPronto ;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
 
 	/**
 	 * Launch the application.
@@ -62,7 +65,7 @@ public class ViewCucina {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnPronto.setBounds(247, 205, 85, 21);
+		btnPronto.setBounds(250, 175, 85, 21);
 		frame.getContentPane().add(btnPronto);
 
 		JLabel lblNewLabel = new JLabel("GOORILLA");
@@ -81,7 +84,7 @@ public class ViewCucina {
 		btnInPreparazione = new JButton("PREPARA");
 		btnInPreparazione.setBackground(new Color(240, 240, 240));
 		btnInPreparazione.setForeground(Color.BLACK);
-		btnInPreparazione.setBounds(127, 205, 85, 21);
+		btnInPreparazione.setBounds(82, 175, 85, 21);
 		frame.getContentPane().add(btnInPreparazione);
 		
 		comboBoxOrdini = new JComboBox();
@@ -91,6 +94,22 @@ public class ViewCucina {
 		 comboBoxPronto = new JComboBox();
 		comboBoxPronto.setBounds(219, 117, 143, 27);
 		frame.getContentPane().add(comboBoxPronto);
+		
+		lblNewLabel_1 = new JLabel("Cucina");
+		lblNewLabel_1.setFont(new Font("Source Serif Pro Black", Font.ITALIC, 12));
+		lblNewLabel_1.setBounds(10, 10, 76, 21);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Da preparare");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(78, 87, 99, 20);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("In preparazione");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.ITALIC, 12));
+		lblNewLabel_3.setBounds(246, 87, 99, 20);
+		frame.getContentPane().add(lblNewLabel_3);
 	}
 
 	public JButton getBtnPronto() {
