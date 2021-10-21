@@ -45,8 +45,6 @@ public class ControllerCameriere implements ActionListener {
 				list.add( (Listino) viewCameriere.getComboBoxOrdini()
 						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex()));
 				indexListino++;
-				viewCameriere.getTextOrdini().setText(temp);
-
 				modello.scriviSuFile(list);
 				//temp+=""+viewCameriere.getComboBoxOrdini().toString()+"\n";
 				//viewCameriere.getTextOrdini().setText(temp);
@@ -82,7 +80,6 @@ public class ControllerCameriere implements ActionListener {
 					comande++;
 					totale+=list2.get(i).getPrezzo();
 					
-					break;
 				}
 			}
 			modello.scriviSuFile(list2);
