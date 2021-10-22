@@ -95,7 +95,7 @@ public class ViewCucina {
 		comboBoxPronto.setBounds(219, 117, 143, 27);
 		frame.getContentPane().add(comboBoxPronto);
 		
-		lblNewLabel_1 = new JLabel("Cucina");
+		lblNewLabel_1 = new JLabel("Piano bar");
 		lblNewLabel_1.setFont(new Font("Source Serif Pro Black", Font.ITALIC, 12));
 		lblNewLabel_1.setBounds(10, 10, 76, 21);
 		frame.getContentPane().add(lblNewLabel_1);
