@@ -18,20 +18,19 @@ public class MainCucina {
 			public void run() {
 				try {
 					ViewCucina window = new ViewCucina();
-					FileWriter fw= new FileWriter("Comande.txt");
-					BufferedReader b=null;
-					 b= new BufferedReader(new FileReader("Comande.txt"));
-					 int stato = 0;
-					 int id=0;
-				
-					String nome="";
+					FileWriter fw = new FileWriter("Comande.txt");
+					BufferedReader b = null;
+					b = new BufferedReader(new FileReader("Comande.txt"));
+					int stato = 0;
+					int id = 0;
+
+					String nome = "";
 					float prezzo = 0;
-					Model modello= new Model(fw, b);
-					
-					//Listino [] list= new Listino[20];
-					
-					
-					ControllerCucina controller= new ControllerCucina(window, modello);
+					Model modello = new Model(fw, b);
+
+					// Listino [] list= new Listino[20];
+
+					ControllerCucina controller = new ControllerCucina(window, modello);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -40,5 +39,5 @@ public class MainCucina {
 			}
 
 		});
-}
+	}
 }

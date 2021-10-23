@@ -51,20 +51,20 @@ public class Model {
 	}
 
 	public ArrayList<Listino> leggiDaFile() {
-		ArrayList<Listino> lista= new ArrayList<Listino>();
+		ArrayList<Listino> lista = new ArrayList<Listino>();
 		try {
-			
+
 			System.out.println("son dentro");
 			fis = new FileInputStream("Comande.txt");
 			System.out.println("son dentro 2");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			System.out.println("son dentro 3");
-			/*while (true) {
-				list.add((Listino) ois.readObject());
-				System.out.println("Ci sono");
-			}*/
-			 lista=  (ArrayList<Listino>) ois.readObject();
-			//System.out.println(lista);
+			/*
+			 * while (true) { list.add((Listino) ois.readObject());
+			 * System.out.println("Ci sono"); }
+			 */
+			lista = (ArrayList<Listino>) ois.readObject();
+			// System.out.println(lista);
 
 		} catch (Exception e) {
 			try {
@@ -79,29 +79,22 @@ public class Model {
 
 	}
 
-	/*public static void main(String[] args) {
-		FileWriter fw;
-		try {
-			ArrayList<Listino> lis= new ArrayList<Listino>();
-			ArrayList<Listino> lis2= new ArrayList<Listino>();
-			fw=new FileWriter("Prova.txt");
-			BufferedReader br = null;
-			Model m= new Model(fw, br);
-			//m.leggiDaFile();
-			lis.add(model.Listino.Campari);
-			lis.add(model.Listino.Cuba_Libre);
-			m.scriviSuFile(lis);
-	
-			lis2=m.leggiDaFile();
-			
-			
-			System.out.println(lis2);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}*/
+	/*
+	 * public static void main(String[] args) { FileWriter fw; try {
+	 * ArrayList<Listino> lis= new ArrayList<Listino>(); ArrayList<Listino> lis2=
+	 * new ArrayList<Listino>(); fw=new FileWriter("Prova.txt"); BufferedReader br =
+	 * null; Model m= new Model(fw, br); //m.leggiDaFile();
+	 * lis.add(model.Listino.Campari); lis.add(model.Listino.Cuba_Libre);
+	 * m.scriviSuFile(lis);
+	 * 
+	 * lis2=m.leggiDaFile();
+	 * 
+	 * 
+	 * System.out.println(lis2); } catch (IOException e) { // TODO Auto-generated
+	 * catch block e.printStackTrace(); }
+	 * 
+	 * 
+	 * }
+	 */
 
 }

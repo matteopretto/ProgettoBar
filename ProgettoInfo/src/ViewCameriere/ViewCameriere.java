@@ -29,8 +29,7 @@ public class ViewCameriere {
 	private JButton btnNewServito;
 	private JTextField textComande;
 	private JTextField textTotale;
-	
-	
+
 	public void registraController(ControllerCameriere controller) {
 		comboBoxOrdini.addActionListener(controller);
 		Ordina.addActionListener(controller);
@@ -92,19 +91,19 @@ public class ViewCameriere {
 		textServito.setFont(new Font("Modern No. 20", Font.PLAIN, 13));
 		textServito.setBounds(26, 171, 130, 121);
 		frame.getContentPane().add(textServito);
-		
+
 		comboBoxDaServire = new JComboBox();
 		comboBoxDaServire.setBounds(188, 188, 123, 31);
 		frame.getContentPane().add(comboBoxDaServire);
-		
-		 btnNewAggiorna = new JButton("AGGIORNA");
+
+		btnNewAggiorna = new JButton("AGGIORNA");
 		btnNewAggiorna.setBounds(241, 329, 85, 21);
 		frame.getContentPane().add(btnNewAggiorna);
-		
+
 		btnNewServito = new JButton("SERVITO");
 		btnNewServito.setBounds(211, 229, 85, 21);
 		frame.getContentPane().add(btnNewServito);
-		
+
 		textComande = new JTextField();
 		textComande.setFont(new Font("Times New Roman", Font.BOLD, 10));
 		textComande.setText("TOT. 0");
@@ -113,7 +112,7 @@ public class ViewCameriere {
 		textComande.setBounds(8, 10, 48, 19);
 		frame.getContentPane().add(textComande);
 		textComande.setColumns(10);
-		
+
 		textTotale = new JTextField();
 		textTotale.setText("TOTALE \u20AC 0.00");
 		textTotale.setFont(new Font("Times New Roman", Font.BOLD, 10));
@@ -122,7 +121,7 @@ public class ViewCameriere {
 		textTotale.setBounds(247, 9, 79, 20);
 		frame.getContentPane().add(textTotale);
 		textTotale.setColumns(10);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Cameriere");
 		lblNewLabel_1.setFont(new Font("Source Serif Pro Black", Font.ITALIC, 12));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -133,7 +132,7 @@ public class ViewCameriere {
 	public JComboBox getComboBoxOrdini() {
 		return comboBoxOrdini;
 	}
-	
+
 	public JButton getBtnNewAggiorna() {
 		return btnNewAggiorna;
 	}
@@ -205,7 +204,7 @@ public class ViewCameriere {
 	public JTextArea getTextOrdini() {
 		return textServito;
 	}
-	
+
 	public void setTextOrdini(JTextArea textOrdini) {
 		this.textServito = textOrdini;
 	}
