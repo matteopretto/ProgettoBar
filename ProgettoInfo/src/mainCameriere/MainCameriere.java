@@ -11,27 +11,25 @@ import controllerCameriere.ControllerCameriere;
 import model.Model;
 import model.Listino;
 
-
 public class MainCameriere {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					ViewCameriere window = new ViewCameriere();
-					FileWriter fw= new FileWriter("Comande.txt");
-					BufferedReader b=null;
-					 b= new BufferedReader(new FileReader("Comande.txt"));
-					 int stato = 0;
-					 int id=0;
-				
-					String nome="";
+					FileWriter fw = new FileWriter("Comande.txt");
+					BufferedReader b = null;
+					b = new BufferedReader(new FileReader("Comande.txt"));
+					int stato = 0;
+					int id = 0;
+
+					String nome = "";
 					float prezzo = 0;
-					Model modello= new Model(fw, b);
-					Listino listino= new Listino(nome, prezzo, stato, id);
-					ArrayList<Listino> list= new ArrayList<Listino>();
-					
-					
-					ControllerCameriere controller= new ControllerCameriere(window, modello,  list);
+					Model modello = new Model(fw, b);
+					Listino listino = new Listino(nome, prezzo, stato, id);
+					ArrayList<Listino> list = new ArrayList<Listino>();
+
+					ControllerCameriere controller = new ControllerCameriere(window, modello, list);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {
