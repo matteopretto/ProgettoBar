@@ -72,7 +72,7 @@ public class ViewCucina {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.DARK_GRAY);
 		lblNewLabel.setFont(new Font("Stencil", Font.PLAIN, 25));
-		lblNewLabel.setBounds(158, 39, 123, 38);
+		lblNewLabel.setBounds(152, 38, 123, 38);
 		frame.getContentPane().add(lblNewLabel);
 
 		btnAggiorna = new JButton("AGGIORNA");
@@ -84,15 +84,17 @@ public class ViewCucina {
 		btnInPreparazione = new JButton("PREPARA");
 		btnInPreparazione.setBackground(new Color(240, 240, 240));
 		btnInPreparazione.setForeground(Color.BLACK);
-		btnInPreparazione.setBounds(82, 175, 85, 21);
+		btnInPreparazione.setBounds(78, 175, 99, 21);
 		frame.getContentPane().add(btnInPreparazione);
 
 		comboBoxOrdini = new JComboBox();
-		comboBoxOrdini.setBounds(52, 117, 143, 27);
+		comboBoxOrdini.setBounds(40, 117, 155, 27);
 		frame.getContentPane().add(comboBoxOrdini);
 
 		comboBoxPronto = new JComboBox();
-		comboBoxPronto.setBounds(219, 117, 143, 27);
+
+		comboBoxPronto.setBounds(219, 117, 155, 27);
+
 		frame.getContentPane().add(comboBoxPronto);
 
 		lblNewLabel_1 = new JLabel("Piano bar");

@@ -54,11 +54,13 @@ public class Model {
 		ArrayList<Listino> lista = new ArrayList<Listino>();
 		try {
 
-			System.out.println("son dentro");
+
+			// System.out.println("son dentro");
+
 			fis = new FileInputStream("Comande.txt");
-			System.out.println("son dentro 2");
+			// System.out.println("son dentro 2");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			System.out.println("son dentro 3");
+
 			/*
 			 * while (true) { list.add((Listino) ois.readObject());
 			 * System.out.println("Ci sono"); }

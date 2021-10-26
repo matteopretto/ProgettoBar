@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -64,6 +65,7 @@ public class ViewCameriere {
 		Ordina = new JButton("ORDINA");
 		Ordina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// JOptionPane.showMessageDialog(null, "ORDINATO");
 			}
 		});
 		Ordina.setBackground(Color.LIGHT_GRAY);
@@ -78,14 +80,20 @@ public class ViewCameriere {
 		frame.getContentPane().add(lblNewLabel);
 
 		comboBoxOrdini = new JComboBox();
-		comboBoxOrdini.setBounds(85, 85, 130, 31);
+		comboBoxOrdini.setBounds(57, 85, 158, 31);
 		frame.getContentPane().add(comboBoxOrdini);
-		comboBoxOrdini.addItem(Listino.Campari);
-		comboBoxOrdini.addItem(Listino.Cuba_Libre);
-		comboBoxOrdini.addItem(Listino.Gin_Lemon);
-		comboBoxOrdini.addItem(Listino.Malibu_Cola);
-		comboBoxOrdini.addItem(Listino.Mojito);
-		comboBoxOrdini.addItem(Listino.Prosecco);
+		Listino Gin_Lemon = new Listino("Gin_Lemon     ", (float) 7.00, 0, 1);
+		Listino Cuba_Libre = new Listino("Cuba_Libre     ", (float) 8.00, 0, 2);
+		Listino Spritz_Campari = new Listino("Spritz_Campari     ", (float) 5.00, 0, 3);
+		Listino Malibu_Cola = new Listino("Malibu_Cola     ", (float) 7.00, 0, 4);
+		Listino Mojito = new Listino("Mojito     ", (float) 7.00, 0, 5);
+		Listino Prosecco = new Listino("Prosecco     ", (float) 7.00, 0, 6);
+		comboBoxOrdini.addItem(Gin_Lemon);
+		comboBoxOrdini.addItem(Cuba_Libre);
+		comboBoxOrdini.addItem(Spritz_Campari);
+		comboBoxOrdini.addItem(Malibu_Cola);
+		comboBoxOrdini.addItem(Mojito);
+		comboBoxOrdini.addItem(Prosecco);
 
 		textServito = new JTextArea();
 		textServito.setFont(new Font("Modern No. 20", Font.PLAIN, 13));
@@ -93,15 +101,16 @@ public class ViewCameriere {
 		frame.getContentPane().add(textServito);
 
 		comboBoxDaServire = new JComboBox();
-		comboBoxDaServire.setBounds(188, 188, 123, 31);
+		comboBoxDaServire.setBounds(168, 188, 158, 31);
 		frame.getContentPane().add(comboBoxDaServire);
 
 		btnNewAggiorna = new JButton("AGGIORNA");
-		btnNewAggiorna.setBounds(241, 329, 85, 21);
+		btnNewAggiorna.setBounds(241, 329, 102, 21);
+
 		frame.getContentPane().add(btnNewAggiorna);
 
 		btnNewServito = new JButton("SERVITO");
-		btnNewServito.setBounds(211, 229, 85, 21);
+		btnNewServito.setBounds(204, 229, 85, 21);
 		frame.getContentPane().add(btnNewServito);
 
 		textComande = new JTextField();

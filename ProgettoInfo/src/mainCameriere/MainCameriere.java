@@ -29,7 +29,7 @@ public class MainCameriere {
 					Listino listino = new Listino(nome, prezzo, stato, id);
 					ArrayList<Listino> list = new ArrayList<Listino>();
 
-					ControllerCameriere controller = new ControllerCameriere(window, modello, list);
+					ControllerCameriere controller = new ControllerCameriere(window, modello, list, listino);
 
 					window.frame.setVisible(true);
 				} catch (Exception e) {

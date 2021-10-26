@@ -15,6 +15,8 @@ public class ControllerCameriere implements ActionListener {
 	private ViewCameriere viewCameriere;
 	private Model modello;
 	String temp = "SERVITO:\n";
+	private Listino listino;
+
 	String strFile = "";
 	int apriFile = 0;
 	int i = 0;
@@ -25,17 +27,20 @@ public class ControllerCameriere implements ActionListener {
 	String nComande = "";
 	float totale;
 	String sTotale = "";
+	int f = 10;
 
-	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, ArrayList<Listino> list) {
+	public ControllerCameriere(ViewCameriere viewCameriere, Model modello, ArrayList<Listino> list, Listino listino) {
 		this.viewCameriere = viewCameriere;
 		viewCameriere.registraController(this);
 		this.modello = modello;
 		this.list = list;
+		this.listino=listino;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 
 		if (arg0.getSource() == viewCameriere.getOrdina()) {
+			JOptionPane.showMessageDialog(null, "ORDINATO");
 			if (apriFile == 0) {
 				modello.apriFile();
 				apriFile++;
@@ -44,7 +49,17 @@ public class ControllerCameriere implements ActionListener {
 			if (viewCameriere.getComboBoxOrdini().getSelectedIndex() != -1) {
 				list.add((Listino) viewCameriere.getComboBoxOrdini()
 						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex()));
-				indexListino++;
+				Listino tempo = listino.nuovoList((Listino) viewCameriere.getComboBoxOrdini()
+						.getItemAt(viewCameriere.getComboBoxOrdini().getSelectedIndex()));
+				int x = viewCameriere.getComboBoxOrdini().getSelectedIndex();
+				viewCameriere.getComboBoxOrdini().removeItemAt(x);
+				viewCameriere.getComboBoxOrdini().addItem(tempo);
+
+				/*
+				 * int x=list.size(); int j=list.get(x-1).getID(); list.get(x-1).setID(j+f);
+				 * f+=3;
+				 */
+				// indexListino++;
 				modello.scriviSuFile(list);
 				// temp+=""+viewCameriere.getComboBoxOrdini().toString()+"\n";
 				// viewCameriere.getTextOrdini().setText(temp);
@@ -57,30 +72,47 @@ public class ControllerCameriere implements ActionListener {
 
 		if (arg0.getSource() == viewCameriere.getBtnNewAggiorna()) {
 			list2 = modello.leggiDaFile();
-			System.out.println(list2);
+
+			// System.out.println(list2);
 			for (int i = 0; i < list2.size(); i++) {
 				if (list2.get(i).getStato() == 2) {
-					System.out.println(list2);
+					// System.out.println(list2);
+
 					viewCameriere.getComboBoxDaServire().addItem(list2.get(i));
+					break;
 				}
 			}
 		}
 
 		if (arg0.getSource() == viewCameriere.getBtnNewServito()) {
-			int a = viewCameriere.getComboBoxDaServire().getSelectedIndex();
-			int b = ((Listino) viewCameriere.getComboBoxDaServire().getSelectedItem()).getID();
-			viewCameriere.getComboBoxDaServire().removeItemAt(a);
-			list2 = modello.leggiDaFile();
-			for (int i = 0; i < list2.size(); i++) {
-				if (list2.get(i).getID() == b) {
-					int v = list2.get(i).getStato();
-					list2.get(i).setStato(v + 1);
-					temp += "" + list2.get(i) + "\n";
-					comande++;
-					totale += list2.get(i).getPrezzo();
 
+			if (viewCameriere.getComboBoxDaServire().getSelectedIndex() == -1) {
+				// System.out.println("devi preparare un cocktail prima");
+				JOptionPane.showMessageDialog(null, "aggiorna la pagina o aspetta che un cocktail sia pronto");
+			} else {
+				int a = viewCameriere.getComboBoxDaServire().getSelectedIndex();
+				int b = ((Listino) viewCameriere.getComboBoxDaServire().getSelectedItem()).getID();
+				viewCameriere.getComboBoxDaServire().removeItemAt(a);
+				list2 = modello.leggiDaFile();
+				for (int i = 0; i < list2.size(); i++) {
+					if (list2.get(i).getID() == b) {
+						int v = list2.get(i).getStato();
+						list2.get(i).setStato(v + 1);
+						temp += "" + list2.get(i) + "\n";
+						comande++;
+						totale += list2.get(i).getPrezzo();
+						break;
+
+					}
 				}
+				modello.scriviSuFile(list2);
+				viewCameriere.getTextOrdini().setText(temp);
+				nComande = "TOT. " + comande;
+				viewCameriere.getTextComande().setText(nComande);
+				sTotale = "TOTALE €" + totale;
+				viewCameriere.getTextTotale().setText(sTotale);
 			}
+
 			modello.scriviSuFile(list2);
 			viewCameriere.getTextOrdini().setText(temp);
 			nComande = "TOT. " + comande;
