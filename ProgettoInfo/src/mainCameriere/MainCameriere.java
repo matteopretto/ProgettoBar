@@ -19,7 +19,7 @@ public class MainCameriere {
 			public void run() {
 				try {
 					JOptionPane.showMessageDialog(null, "Per i professori: fixato problema che preparava piu comande."
-							+ "Unico bug rimasto quello della scroll bar sulla textfield nella grafica cameriere.");
+							+ "Nella textfield mainCameriere vengono scritte le ultime 4 omande servite(aggiornate ad ogni servizio).");
 					ViewCameriere window = new ViewCameriere();
 					FileWriter fw = new FileWriter("Comande.txt");
 					BufferedReader b = null;

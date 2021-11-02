@@ -14,8 +14,13 @@ public class ControllerCameriere implements ActionListener {
 
 	private ViewCameriere viewCameriere;
 	private Model modello;
-	String temp = "SERVITO:\n";
+	String fisso = "SERVITO:\n";
+	String temp1="";
+	String temp2="";
+	String temp3="";
+	String temp4="";
 	private Listino listino;
+	int stringa=0;
 
 	String strFile = "";
 	int apriFile = 0;
@@ -80,7 +85,8 @@ public class ControllerCameriere implements ActionListener {
 					// System.out.println(list2);
 
 					viewCameriere.getComboBoxDaServire().addItem(list2.get(i));
-					break;
+					list2.get(i).setStato(list2.get(i).getStato()+1);
+					modello.scriviSuFile(list2);
 				}
 			}
 		}
@@ -99,7 +105,31 @@ public class ControllerCameriere implements ActionListener {
 					if (list2.get(i).getID() == b) {
 						int v = list2.get(i).getStato();
 						list2.get(i).setStato(v + 1);
-						temp += "" + list2.get(i) + "\n";
+						if(stringa==0) {
+							temp1= "" + list2.get(i) + "\n";
+							stringa++;
+						}
+						else if(stringa==1) {
+							temp2= "" + list2.get(i) + "\n";
+							stringa++;
+						}
+						else if(stringa==2) {
+							temp3= "" + list2.get(i) + "\n";
+							stringa++;
+						}
+						else if(stringa==3) {
+							temp4= "" + list2.get(i) + "\n";
+							stringa++;
+						}
+						else if(stringa>=4) {
+							String nw= "" + list2.get(i) + "\n";
+							temp1=temp2;
+							temp2=temp3;
+							temp3=temp4;
+							temp4=nw;
+							stringa++;
+						}
+						
 						comande++;
 						totale += list2.get(i).getPrezzo();
 						break;
@@ -107,20 +137,15 @@ public class ControllerCameriere implements ActionListener {
 					}
 				}
 				modello.scriviSuFile(list2);
-				viewCameriere.getTextOrdini().setText(temp);
+				String temporanea=""+fisso+""+temp1+""+temp2+""+temp3+""+temp4;
+				viewCameriere.getTextOrdini().setText(temporanea);
 				nComande = "TOT. " + comande;
 				viewCameriere.getTextComande().setText(nComande);
 				sTotale = "TOTALE €" + totale;
 				viewCameriere.getTextTotale().setText(sTotale);
 			}
 
-			modello.scriviSuFile(list2);
-			viewCameriere.getTextOrdini().setText(temp);
-			nComande = "TOT. " + comande;
-			viewCameriere.getTextComande().setText(nComande);
-			sTotale = "TOTALE €" + totale;
-			viewCameriere.getTextTotale().setText(sTotale);
-
+		
 		}
 	}
 }
