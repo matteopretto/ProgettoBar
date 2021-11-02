@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import ViewCameriere.ViewCameriere;
 import controllerCameriere.ControllerCameriere;
 import model.Model;
@@ -16,6 +18,8 @@ public class MainCameriere {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					JOptionPane.showMessageDialog(null, "Per i professori: fixato problema che preparava piu comande."
+							+ "Unico bug rimasto quello della scroll bar sulla textfield nella grafica cameriere.");
 					ViewCameriere window = new ViewCameriere();
 					FileWriter fw = new FileWriter("Comande.txt");
 					BufferedReader b = null;

@@ -44,6 +44,7 @@ public class ControllerCameriere implements ActionListener {
 			if (apriFile == 0) {
 				modello.apriFile();
 				apriFile++;
+		
 			} else
 				;
 			if (viewCameriere.getComboBoxOrdini().getSelectedIndex() != -1) {

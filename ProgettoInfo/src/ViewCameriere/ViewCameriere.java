@@ -105,6 +105,10 @@ public class ViewCameriere {
 		frame.getContentPane().add(comboBoxDaServire);
 
 		btnNewAggiorna = new JButton("AGGIORNA");
+		btnNewAggiorna.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewAggiorna.setBounds(241, 329, 102, 21);
 
 		frame.getContentPane().add(btnNewAggiorna);
