@@ -19,7 +19,9 @@ public class MainCameriere {
 			public void run() {
 				try {
 					JOptionPane.showMessageDialog(null, "Per i professori: fixato problema che preparava piu comande."
-							+ "Nella textfield mainCameriere vengono scritte le ultime 4 omande servite(aggiornate ad ogni servizio).");
+							+ "Nella textfield mainCameriere vengono scritte le ultime 4 comande servite(aggiornate ad ogni servizio).\n"
+							+ "Dovendo creare un nuovo oggetto dopo ogni ordinazione, per evitare che ci sia lo stesso id per più comande uguale"
+							+ ", ogni volta che viene fatta un ordinazione lo stesso drink andrà a finire in fondo all comboBoxOrdini");
 					ViewCameriere window = new ViewCameriere();
 					FileWriter fw = new FileWriter("Comande.txt");
 					BufferedReader b = null;
